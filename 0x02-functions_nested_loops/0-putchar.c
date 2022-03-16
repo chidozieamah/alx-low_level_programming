@@ -1,23 +1,21 @@
 #include "main.h"
 
 /**
- * main - Entry point
- *
- * Return: nothing, return void
+ * main - entry point
+ * Descriptipn: a program that prints _putchar,
+ * followed by a new line.
+ * Return: 0;
  */
 int main(void)
-
 {
-int i; /*Declaring statements*/
-char string[8] = "_putchar"; /*Arrays*/
-
-for (i = 0 ; i < 8 ; i++) /*Start for*/
-{
-_putchar(string[i]);/*display word*/
-} /*End for*/
-
-_putchar('\n');
-
-return (0);
-
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
+	return (0);
 }
