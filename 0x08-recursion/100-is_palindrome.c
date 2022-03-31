@@ -1,51 +1,55 @@
 #include "main.h"
 /**
- * is_palindrome-  Returns the natural square root of a number.
- * @s: int type
- * Return: char type
- **/
-int is_palindrome(char *s)
-{
-int first, last;
-
-first = 0;
-last = _strlen_recursion(s) - 1;
-return (palindrome(s, first, last));
-}
-
-/**
- * palindrome - Entry point
- * Desc: palindrome
- * @s: char type
- * @first: int type
- * @last: int type
- * Return: Recursion
- **/
-int palindrome(char *s, int first, int last)
-{
-if (first > last)
-{
-return (1);
-}
-else if (s[first] == s[last])
-{
-return (palindrome(s, first + 1, last - 1));
-}
-else
-return (0);
-}
-
-/**
- * _strlen_recursion - Entry point
- * Desc: _strlen_recursion
- * @s: char type
- * Return: Function that returns the length of a string.
- **/
+ *_strlen_recursion - returns lenght of a string.
+ *@s: pointer to string.
+ *
+ *Return: lenght of string.
+ */
 int _strlen_recursion(char *s)
 {
-if (*s != '\0')
-{
-return (1 + _strlen_recursion(s + 1));
+	if (*s)
+	{
+		return (1 + _strlen_recursion(s + 1));
+	}
+	return (0);
 }
-return (0);
+
+/**
+  *helperFunction - check if palindrome.
+  *@s: pointer to string.
+  *@fi: first index.
+  *@li: lastIndex.
+  *
+  *Return: 0 if not palindrome, 1 if palindrome.
+  */
+int helperFunction(char *s, int fi, int li)
+{
+	if (fi < li && s[fi] == s[li])
+	{
+		return (helperFunction(s, fi + 1, li - 1));
+	}
+	if (s[fi] != s[li])
+	{
+		return (0);
+	}
+	return (1);
+}
+
+/**
+  *is_palindrome - checks if string is palindrome or not.
+  *@s: pointer to string.
+  *
+  *Return: 1 if string is palindrome 0 if not.
+  */
+int is_palindrome(char *s)
+{
+	int fi, li;
+
+	fi = 0;
+	li = _strlen_recursion(s) - 1;
+
+	if (!*s)
+		return (1);
+
+	return (helperFunction(s, fi, li));
 }
