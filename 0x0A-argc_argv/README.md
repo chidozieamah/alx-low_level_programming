@@ -1,1 +1,1 @@
-night work
+static lib
